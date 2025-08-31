@@ -1,5 +1,11 @@
 
 replicatesignal(game:GetService("Players").LocalPlayer.ConnectDiedSignalBackend)
+
+local hatMonitorConnection
+local restartCooldown = false
+local lastHatCount = 0
+
+
 game:GetService("StarterGui"):SetCore("SendNotification", {
      Title = "Oxide Reanimation V3.5";
      Duration = 20;
@@ -2689,5 +2695,143 @@ local function clovr()
      HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.RightHand, n)
      HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.LeftHand, q)
      end)
+
+local function getAllAccessories()
+    local accessories = {}
+    for _, child in pairs(c:GetChildren()) do
+        if child:IsA("Accessory") then
+            table.insert(accessories, child)
+        end
+    end
+    return accessories
+end
+
+
+          local c = game:GetService("Players").LocalPlayer.Character
+
+
+local function isHatValid(hat)
+    if not hat or not hat.Parent or not hat:FindFirstChild("Handle") then
+        return false
+    end
+    
+    local handle = hat.Handle
+    -- Check if hat fell below destroy height or is too far from character
+    local destroyHeight = workspace.FallenPartsDestroyHeight
+    local charPos = char.HumanoidRootPart.Position
+    local hatPos = handle.Position
+    
+    -- Hat fell below destroy height
+    if hatPos.Y < destroyHeight + 50 then
+        return false
+    end
+    
+    -- Hat is too far from character (likely flung away)
+    local distance = (hatPos - charPos).Magnitude
+    if distance > 100 then
+        return false
+    end
+    
+    return true
+end
+
+local function restartVRSystem()
+    if restartCooldown then return end
+    restartCooldown = true
+    
+    print("Hat detected missing/fallen - Restarting VR system...")
+    
+    -- Disconnect current connections
+    pcall(function() connect:Disconnect() end)
+    pcall(function() velocity:Disconnect() end)
+    pcall(function() hatMonitorConnection:Disconnect() end)
+    
+    -- Wait a moment
+    task.wait(0.5)
+    
+    -- Restart the system
+    pcall(function()
+        redo() -- Your main setup function
+        task.wait(0.1)
+        clovr() -- Your VR function
+    end)
+    
+    -- Reset cooldown after delay
+    task.wait(5)
+    restartCooldown = false
+    
+    -- Restart monitoring
+    startHatMonitoring()
+end
+
+local function startHatMonitoring()
+    -- Get initial hat count
+    lastHatCount = #getAllAccessories()
+    
+    hatMonitorConnection = RunService.Heartbeat:Connect(function()
+        local currentAccessories = getAllAccessories()
+        local currentCount = #currentAccessories
+        
+        -- Check if hat count changed (hat was removed/destroyed)
+        if currentCount < lastHatCount then
+            print("Hat count decreased from " .. lastHatCount .. " to " .. currentCount)
+            restartVRSystem()
+            return
+        end
+        
+        -- Check each hat's position and validity
+        for _, hat in pairs(currentAccessories) do
+            if not isHatValid(hat) then
+                print("Hat invalid or fallen: " .. hat.Name)
+                restartVRSystem()
+                break
+            end
+        end
+        
+        lastHatCount = currentCount
+    end)
+end
+
+
+local function onAccessoryRemoved(accessory)
+    if accessory:IsA("Accessory") then
+        print("Accessory removed: " .. accessory.Name)
+        task.wait(0.1) -- Small delay to avoid spam
+        restartVRSystem()
+    end
+end
+
+
+c.ChildRemoved:Connect(onAccessoryRemoved)
+
+lp.CharacterAdded:Connect(function(newChar)
+    c = newChar
+    char = workspace.non or char -- Update reference
+    
+    -- Wait for character to load
+    newChar:WaitForChild("HumanoidRootPart")
+    task.wait(1)
+    
+    -- Restart monitoring for new character
+    pcall(function() hatMonitorConnection:Disconnect() end)
+    startHatMonitoring()
+    
+    -- Reconnect removal monitoring
+    newChar.ChildRemoved:Connect(onAccessoryRemoved)
+end)
+
+-- Start initial monitoring
+startHatMonitoring()
+
+-- Optional: Manual restart keybind
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    
+    -- Press R to manually restart VR system
+    if input.KeyCode == Enum.KeyCode.R then
+        restartVRSystem()
+    end
+end)
+
 
  
