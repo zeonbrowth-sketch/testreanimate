@@ -2196,19 +2196,33 @@ local function clovr()
      
           if _G.ReanimatedAnimations == true then
                pcall(function()
+                    if c:FindFirstChild("Animate") then
                     c.Animate.Disabled = true
                     c.Animate.Disabled = false
+                    end
+                    if char:FindFirstChild("Animate") then
                     char.Animate:Destroy()
+                    end 
+                    if c:FindFirstChild("Animate") then
                     c.Animate.Parent = char
+                    end
+                    if char:FindFirstChild("Animate") then
                     char.Animate.Disabled = true
+                    end
                     --char.Animate.Disabled = false
                end)
                c.Humanoid.Animator.Parent = char.Humanoid
           else 
+               if char:FindFirstChild("Animate") then
                char.Animate:Destroy()
+               end
+               if c:FindFirstChild("Animate") then
                c.Animate.Disabled = true
                c.Animate.Parent = char
+               end
+               if char:FindFirstChild("Animate") then
                char.Animate.Disabled = true
+               end
                c.Humanoid.Animator.Parent = char.Humanoid
           end
           if c:FindFirstChild("Torso") then
