@@ -46,7 +46,7 @@ local function clovr()
      --|| Settings:
      workspace.FallenPartsDestroyHeight = _G.oldh or -500
      local StudsOffset = 0 -- Character height (negative if you're too high)
-     local Smoothness = 50 -- Character interpolation (0.1 - 1 = smooth - rigid)
+     local Smoothness = 1 -- Character interpolation (0.1 - 1 = smooth - rigid)
      local AnchorCharacter = false -- Prevent physics from causing inconsistencies
      local HideCharacter = false -- Hide character on a platform
      local NoCollision = true-- Disable player collision
@@ -198,7 +198,7 @@ local function clovr()
                Orientation.Attachment1 = Attachment0
                Orientation.RigidityEnabled = false
                Orientation.MaxTorque = 20000
-               Orientation.Responsiveness = 40
+               Orientation.Responsiveness = 200
                Orientation.Parent = reanimation["HumanoidRootPart"]
      
                Orientation.Name = Limb.Name.."'s AlignRot"
@@ -208,7 +208,7 @@ local function clovr()
                Position.Attachment1 = Attachment0
                Position.RigidityEnabled = false
                Position.MaxForce = 40000
-               Position.Responsiveness = 40
+               Position.Responsiveness = 200
                Position.Parent = reanimation["HumanoidRootPart"]
      
                Position.Name = Limb.Name.."'s AlignPos"
@@ -353,7 +353,7 @@ local function clovr()
                               Orientation.RigidityEnabled = false
                               Orientation.ReactionTorqueEnabled = true
                               Orientation.MaxTorque = 20000
-                              Orientation.Responsiveness = 40
+                              Orientation.Responsiveness = 200
                               Orientation.Parent = reanimation["Head"]
      
                               Position.Attachment0 = Attachment1
@@ -361,7 +361,7 @@ local function clovr()
                               Position.RigidityEnabled = false
                               Position.ReactionForceEnabled = true
                               Position.MaxForce = 40000
-                              Position.Responsiveness = 40
+                              Position.Responsiveness = 200
                               Position.Parent = reanimation["Head"]
                          end
                     end
