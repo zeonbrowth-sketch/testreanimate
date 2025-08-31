@@ -621,7 +621,7 @@ local function clovr()
                               RightHandGrip = CreateRightGrip(RightHandle)
                          end
                          if AccurateHandPosition then
-                              HandPosition = HandPosition * CFrame.new(0, 0, 1)
+                              HandPosition = HandPosition * CFrame.new(0, 0, -1)
                          end
                          if not VRReady then
                               local HeadRotation = Camera.CFrame - Camera.CFrame.p
