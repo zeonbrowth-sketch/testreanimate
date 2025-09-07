@@ -334,7 +334,7 @@ local function clovr()
                GetHeadAccessories()
           elseif RagdollEnabled then
                if RagdollHeadMovement then
-                    Permadeath()
+                    --Permadeath()
                     MoveHead = CreateAlignment(reanimation["Head"])
                end
                MoveRightArm = CreateAlignment(reanimation["Right Arm"])
