@@ -38,7 +38,7 @@ pcall(function()
 end)
 _G.PDED = true
  
-task.wait(game.Players.RespawnTime + 0.2)
+task.wait(game.Players.RespawnTime + 1)
 local function clovr()
      -- CLOVR - FE FULL-BODY VR SCRIPT
      -- JAN 12TH UPDATE (HEMI) -- FIXED SCRIPT, ADDED TOOL HOLDING, FIXED OTHER STUFF, PERMADEATH SOON!
