@@ -41,7 +41,6 @@ _G.PDED = true
 task.wait(game.Players.RespawnTime + .1)
 local function clovr()
      -- CLOVR - FE FULL-BODY VR SCRIPT
-     task.wait(.1)
      -- JAN 12TH UPDATE (HEMI) -- FIXED SCRIPT, ADDED TOOL HOLDING, FIXED OTHER STUFF, PERMADEATH SOON!
      
      -- | made by 0866 and Abacaxl
@@ -51,15 +50,15 @@ local function clovr()
      
      --|| Settings:
      workspace.FallenPartsDestroyHeight = _G.oldh or -500
-     local StudsOffset = 0 -- Character height (negative if you're too high)
+     local StudsOffset = -0.8 -- Character height (negative if you're too high)
      local Smoothness = 1 -- Character interpolation (0.1 - 1 = smooth - rigid)
      local AnchorCharacter = false -- Prevent physics from causing inconsistencies
-     local HideCharacter = false -- Hide character on a platform
+     local HideCharacter = true -- Hide character on a platform
      local NoCollision = true-- Disable player collision
      local ChatEnabled = true -- See chat on your left hand in-game
      local ChatLocalRange = 75 -- Local chat range
      local ViewportEnabled = true -- View nearby players in a frame
-     local ViewportRange = 30 -- Maximum distance players are updated
+     local ViewportRange = 80 -- Maximum distance players are updated
      local RagdollEnabled = true -- Use your character instead of hats (NetworkOwner vulnerability)
      local RagdollHeadMovement = true -- Move your head separately from your body (+9 second wait)
      local AutoRun = true -- Run script on respawn
