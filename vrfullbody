@@ -38,7 +38,7 @@ pcall(function()
 end)
 _G.PDED = true
  
-task.wait(game.Players.RespawnTime + .1)
+task.wait(game.Players.RespawnTime + 1)
 local function clovr()
      -- CLOVR - FE FULL-BODY VR SCRIPT
      -- JAN 12TH UPDATE (HEMI) -- FIXED SCRIPT, ADDED TOOL HOLDING, FIXED OTHER STUFF, PERMADEATH SOON!
@@ -50,10 +50,10 @@ local function clovr()
      
      --|| Settings:
      workspace.FallenPartsDestroyHeight = _G.oldh or -500
-     local StudsOffset = -0.8 -- Character height (negative if you're too high)
+     local StudsOffset = -2 -- Character height (negative if you're too high)
      local Smoothness = 1 -- Character interpolation (0.1 - 1 = smooth - rigid)
-     local AnchorCharacter = false -- Prevent physics from causing inconsistencies
-     local HideCharacter = true -- Hide character on a platform
+     local AnchorCharacter = true -- Prevent physics from causing inconsistencies
+     local HideCharacter = false -- Hide character on a platform
      local NoCollision = true-- Disable player collision
      local ChatEnabled = true -- See chat on your left hand in-game
      local ChatLocalRange = 75 -- Local chat range
