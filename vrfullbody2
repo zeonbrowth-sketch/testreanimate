@@ -767,7 +767,7 @@ local function clovr()
                     -- Wait a moment before resetting to ensure the notification is sent
                     task.wait(0.5) 
                     -- Reset the character. The script host should re-run this script on respawn.
-                    game:GetService("Players").LocalPlayer:LoadCharacter()
+                   print("VR lost")
                 end
             end)
         end
