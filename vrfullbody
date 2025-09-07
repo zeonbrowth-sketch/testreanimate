@@ -204,7 +204,7 @@ local function clovr()
                Orientation.Attachment1 = Attachment0
                Orientation.RigidityEnabled = false
                Orientation.MaxTorque = 20000
-               Orientation.Responsiveness = 200
+               Orientation.Responsiveness = 2000
                Orientation.Parent = reanimation["HumanoidRootPart"]
      
                Orientation.Name = Limb.Name.."'s AlignRot"
@@ -214,7 +214,7 @@ local function clovr()
                Position.Attachment1 = Attachment0
                Position.RigidityEnabled = false
                Position.MaxForce = 40000
-               Position.Responsiveness = 200
+               Position.Responsiveness = 2000
                Position.Parent = reanimation["HumanoidRootPart"]
      
                Position.Name = Limb.Name.."'s AlignPos"
@@ -359,7 +359,7 @@ local function clovr()
                               Orientation.RigidityEnabled = false
                               Orientation.ReactionTorqueEnabled = true
                               Orientation.MaxTorque = 20000
-                              Orientation.Responsiveness = 200
+                              Orientation.Responsiveness = 2000
                               Orientation.Parent = reanimation["Head"]
      
                               Position.Attachment0 = Attachment1
@@ -367,7 +367,7 @@ local function clovr()
                               Position.RigidityEnabled = false
                               Position.ReactionForceEnabled = true
                               Position.MaxForce = 40000
-                              Position.Responsiveness = 200
+                              Position.Responsiveness = 2000
                               Position.Parent = reanimation["Head"]
                          end
                     end
@@ -1306,14 +1306,14 @@ local function clovr()
           AlignPos.MaxForce = 67752;
           AlignPos.MaxVelocity = math.huge/9e110;
           AlignPos.ReactionForceEnabled = false;
-          AlignPos.Responsiveness = 200;
+          AlignPos.Responsiveness = 2000;
           AlignPos.RigidityEnabled = false;
           local AlignOri = Instance.new('AlignOrientation', Part1);
           AlignOri.MaxAngularVelocity = math.huge/9e110;
           AlignOri.MaxTorque = 67752;
           AlignOri.PrimaryAxisOnly = false;
           AlignOri.ReactionTorqueEnabled = false;
-          AlignOri.Responsiveness = 200;
+          AlignOri.Responsiveness = 2000;
           AlignOri.RigidityEnabled = false;
           local AttachmentA=Instance.new('Attachment',Part1);
           local AttachmentB=Instance.new('Attachment',Part0);
