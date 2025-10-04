@@ -64,7 +64,7 @@ local function clovr()
      local AutoRun = false -- Run script on respawn
      local AutoRespawn = false -- Kill your real body when your virtual body dies
      local WearAllAccessories = true -- Use all leftover hats for the head
-     local AccurateHandPosition = true -- Move your Roblox hands according to your real hands
+     local AccurateHandPosition = false -- Move your Roblox hands according to your real hands
      local AccessorySettings = {
           LeftArm = "",
           RightArm = "",
