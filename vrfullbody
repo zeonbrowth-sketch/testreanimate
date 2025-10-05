@@ -1,4 +1,32 @@
-
+_G.LegacyFootPlant = false
+_G.CustomHats = true-- Enable or disable custom rig feature (basically old oxide when false)
+_G.CH = {
+    Torso = {
+       Name= "Accessory (TorsoNoob)",
+        TextureId = "125975972015302",
+        Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))
+    },
+    RightArm = {
+         Name= "Accessory (RArmNoob)",
+        TextureId = "135650240593878", 
+         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(-90))
+    },
+    LeftArm = {
+        Name= "Accessory (LArmNoob)",
+        TextureId = "135650240593878",
+        Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(-90))
+    },
+    RightLeg = {
+        Name= "Accessory (LLegNoob)",
+        TextureId = "73798034827573",
+        Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
+    },
+    LeftLeg = {
+        Name= "Accessory (RLegNoob)",
+        TextureId = "73798034827573",
+        Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
+    }
+}
 replicatesignal(game:GetService("Players").LocalPlayer.ConnectDiedSignalBackend)
 
 local hatMonitorConnection
