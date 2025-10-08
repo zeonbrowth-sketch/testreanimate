@@ -1,0 +1,64 @@
+
+
+
+
+KryptonConfiguration = {
+	WaitTime = 0.251,
+	FakeRigScale = 1,
+	DestroyHeightOffset = 50,
+	TeleportOffsetRadius = 20,
+	RefitHatCount = 3,
+
+	RigName = "Tetris",
+
+	ReturnOnDeath = true,
+
+	Flinging = { -- UNFINISHED
+		Enabled = true,
+		MethodUsed = "Tool", -- Tool, Hat, HatTouch
+		FlingMagnitude = 8000,
+	},
+
+	Reclaim = false,
+	Refit = true,
+	SetCharacter = true,
+	Animations = true,
+
+	NoCollisions = true,
+	AntiVoiding = false,
+	SetSimulationRadius = false,
+	DisableCharacterScripts = true,
+	AccessoryFallbackDefaults = true,
+	OverlayFakeCharacter = false,
+	LimitHatsPerLimb = false,
+	NoBodyNearby = true,
+	PermanentDeath = true,
+
+	Hats = {
+		["Right Arm"] = {
+			{Texture = "136752500636691", Mesh = "125405780718494", Name = "Accessory (RArm)", Offset = CFrame.Angles(0, 0, math.rad(90))}
+			
+		},
+
+		["Left Arm"] = {
+			{Texture = "136752500636691", Mesh = "125405780718494", Name = "Accessory (LArm)", Offset = CFrame.Angles(0, 0, math.rad(90))}
+		},
+
+		["Right Leg"] = {
+			{Texture = "136752500636691", Mesh = "125405780718494", Name = "Accessory (RLeg)", Offset = CFrame.Angles(0, 0, math.rad(90))}
+		},
+
+		["Left Leg"] = {
+			{Texture = "136752500636691", Mesh = "125405780718494", Name = "Accessory (LLeg)", Offset = CFrame.Angles(0, 0, math.rad(90))}
+		},
+
+		["Torso"] = {
+			{Texture = "70661572547971", Mesh = "110684113028749", Name = "Accessory (Black)", Offset = CFrame.identity}
+		},
+	},
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KadeTheExploiter/Krypton/main/Module.luau"))()
+
+
+
+
