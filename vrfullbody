@@ -1,28 +1,28 @@
 
 _G.CH = {
     Torso = {
-       Name= "Accessory (TorsoNoob)",
-        TextureId = "125975972015302",
+       Name= "Accessory (Black)",
+        TextureId = "70661572547971",
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))
     },
     RightArm = {
-         Name= "Accessory (RArmNoob)",
-        TextureId = "135650240593878", 
+         Name= "Accessory (RArm)",
+        TextureId = "136752500636691", 
          Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(-90))
     },
     LeftArm = {
-        Name= "Accessory (LArmNoob)",
-        TextureId = "135650240593878",
+        Name= "Accessory (LArm)",
+        TextureId = "136752500636691",
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(-90))
     },
     RightLeg = {
-        Name= "Accessory (LLegNoob)",
-        TextureId = "73798034827573",
+        Name= "Accessory (RLeg)",
+        TextureId = "136752500636691",
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     },
     LeftLeg = {
-        Name= "Accessory (RLegNoob)",
-        TextureId = "73798034827573",
+        Name= "Accessory (LLeg)",
+        TextureId = "136752500636691",
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     }
 }
